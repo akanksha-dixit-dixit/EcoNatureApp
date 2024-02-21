@@ -1,0 +1,48 @@
+/* Tailwind Reset & Normalize /
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/ Root vars */
+body,
+html {
+  font-family: 'Poppins', sans-serif;
+}
+
+section.Header-Container {
+  background: #6ab43e;
+  font-family: 'Poppins', sans-serif;
+}
+header {
+  display: flex;
+}
+.contactUs {
+  display: flex;
+  gap: 1.8rem;
+}
+a.phn {
+  margin-left: 0.2rem;
+  font-size: 1rem;
+  font-weight: 400;
+}
+.phoneNumber {
+  color: #fff;
+}
+.email {
+  color: #fff;
+}
+a.email {
+  margin-left: 0.4rem;
+  font-size: 1rem;
+  font-weight: 400;
+}
+.ToolBar {
+  display: flex;
+  gap: 1.5rem;
+  color: #fff;
+}
+
+.header-icons {
+  font-size: 1.15rem;
+}
+
