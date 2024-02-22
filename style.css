@@ -45,4 +45,8 @@ a.email {
 .header-icons {
   font-size: 1.15rem;
 }
-
+.weatherDetails {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
