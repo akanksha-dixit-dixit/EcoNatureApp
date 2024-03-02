@@ -12,6 +12,7 @@
   <script src="https://kit.fontawesome.com/e68cae37ae.js" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet">
@@ -19,8 +20,6 @@
 </head>
 
 <body>
-
-
   <section class="Header-Container">
     <header class="mx-auto px-28 py-4 flex flex-row justify-between">
       <div class="contactUs">
@@ -36,17 +35,34 @@
 
       <div class="ToolBar flex flex-row">
         <div class="weatherDetails cursor-pointer">
-          <i class="fa-solid header-icons fa-arrows-rotate"></i>
+          <i class="fa-solid header-icons fa-arrows-rotate" id="rotateArrow"></i>
+          <span class="detailsOfweather"></span>
+          <span class="detailsOfLocation"></span>
 
         </div>
-        <div class="theme cursor-pointer">
-          <i class="fa-regular header-icons fa-sun"></i>
+        <div class="theme cursor-pointer dayNight">
+          <span id="day" class="show"><i class="fa-solid fa-sun"></i></span>
+          <span id="night" class="hide"><i class="fa-solid fa-moon"></i></span>
         </div>
       </div>
     </header>
 
   </section>
-  <section class="Content-Container"></Section>
+  <section class="Content-Container">
+    <div class="banner">
+      <div class="overlay"></div>
+      <video autoPlay loop muted>
+        <source src='Assets/video(0).mp4' type="video/mp4" />
+      </video>
+      <div class="content-text">
+        <h1>Save The World</h1>
+        <h3>I believe in God, only I spell it Nature</h3>
+        <blockquote>"Your deepest roots are in nature. No matter who you are, where you live, or what kind of life you lead,
+           you remain irrevocably linked with the rest of creation"</blockquote>
+        </p>
+      </div>
+    </div>
+  </Section>
   <section class="Footer-Container"></section>
 
 </body>

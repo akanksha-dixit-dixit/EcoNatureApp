@@ -4,15 +4,21 @@
 @tailwind utilities;
 
 / Root vars */
+:root {
+  --dark-primary: #6bb05d;
+  --light-primary: #4d7f43c9;
+}
+
 body,
 html {
   font-family: 'Poppins', sans-serif;
 }
 
 section.Header-Container {
-  background: #6ab43e;
+  background: var(--dark-primary);
   font-family: 'Poppins', sans-serif;
 }
+
 header {
   display: flex;
 }
@@ -45,4 +51,143 @@ a.email {
 .header-icons {
   font-size: 1.15rem;
 }
+.weatherDetails {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
 
+.fa-arrows-rotate {
+  transform: rotate(0deg);
+  transition: all 600ms ease;
+}
+.fa-arrows-rotate:hover {
+  background: #3f9b2f;
+  border-radius: 2rem;
+  color: #40563a;
+}
+.refresh {
+  transform: rotate(180deg);
+}
+
+.dayNight {
+  position: relative;
+}
+.dayNight span {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+}
+.show {
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.hide {
+  transition: opacity 0.3s, transform 0.3s;
+  transform: scale(0.5);
+  margin-top: -100rem;
+  opacity: 0;
+}
+/* Dark mode styles goes here */
+.dark-mode section.Header-Container {
+  background: var(--light-primary);
+  font-family: 'Poppins', sans-serif;
+}
+/* Video Css goes here  */
+.banner {
+  width: 100%;
+  min-height: 92vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
+  background: linear-gradient(
+    to right bottom,
+    rgba(126, 213, 111, 0.35),
+    rgba(40, 180, 133, 0.75)
+  );
+}
+
+.banner video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.content-text {
+  position: relative;
+  text-align: center;
+  max-width: 48rem;
+  z-index: 1;
+}
+
+.content-text h1 {
+  font-size: 2rem;
+  font-weight: bolder;
+  color: #000;
+}
+.content-text h3 {
+  color: #fff;
+  font-size: 1.7rem;
+  animation: moveinleft 2.8s 1;
+  position: relative;
+}
+@keyframes moveinleft {
+  0% {
+    opacity: 0;
+    transform: translateX(-40rem);
+  }
+  80% {
+    transform: translateX(0.5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/* @keyframes moveinleft {
+  0% {
+    right: 35rem;
+  }
+  25% {
+    right: 25rem;
+  }
+  75% {
+    right: 10rem;
+  }
+  100% {
+    right: 5rem;
+  }
+} */
+.content-text blockquote {
+  font-size: 1.2rem;
+  color: #43da43;
+  font-weight: 400;
+  animation: moveInRight 2.8s 1;
+}
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(20rem);
+  }
+  80% {
+    transform: translateX(-0.5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
