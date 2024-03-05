@@ -40,12 +40,10 @@ let day = document.querySelector('#day');
 let night = document.querySelector('#night');
 
 day.addEventListener('click', () => {
-
   night.classList.add('show');
   day.classList.remove('show');
-  day.classList.add('hide')
-  night.classList.remove('hide')
-
+  day.classList.add('hide');
+  night.classList.remove('hide');
 
   // day.style.display = 'none'
   // night.style.display = 'block';
@@ -53,8 +51,25 @@ day.addEventListener('click', () => {
 night.addEventListener('click', () => {
   night.classList.add('hide');
   day.classList.remove('hide');
-  day.classList.add('show')
-  night.classList.remove('show')
+  day.classList.add('show');
+  night.classList.remove('show');
   //  night.style.display = 'none'
   //   day.style.display ='block';
+});
+
+//scroll nav bar
+
+const nav = document.getElementsByTagName('nav')[0];
+let curPos = window.scrollY;
+
+window.addEventListener('scroll', () => {
+  let position = window.scrollY;
+
+  if (curPos > position) {
+    nav.style.top = '0';
+  } else {
+    nav.style.top = '-30%';
+  }
+
+  curPos = position;
 });

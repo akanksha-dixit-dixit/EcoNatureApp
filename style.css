@@ -102,6 +102,7 @@ a.email {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-block-start: -95px;
 }
 
 .overlay {
@@ -190,4 +191,48 @@ a.email {
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+/* navbar goes here  */
+nav {
+  position: sticky;
+  z-index: 10;
+  width: 100%;
+  padding: 1.5rem 0;
+  background: linear-gradient(to bottom left, #2b5a5c, transparent);
+}
+
+.head-nav-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 6rem;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 3rem;
+  color: #fffffb;
+  font-size: 0.9rem;
+}
+.logo {
+  -webkit-text-stroke: 0.5px #fff;
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  transition: color 170ms ease-in;
+  cursor: pointer;
+  color: transparent;
+  z-index: 10;
+}
+
+.logo:hover {
+  color: #fff;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
