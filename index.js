@@ -69,7 +69,27 @@ window.addEventListener('scroll', () => {
     nav.style.top = '0';
   } else {
     nav.style.top = '-30%';
+    nav.style.paddingBlock = '0.9px';
+    nav.style.background = '#209c3bf7';
   }
+  if (position === 0) {
+    nav.style.paddingBlock = '21px';
+    nav.style.background =
+      'linear-gradient(to bottom left, rgb(17 26 26), transparent)';
+  }
+  console.log(position);
 
   curPos = position;
+});
+
+//services Submenu
+
+const services = document.querySelector('.services');
+services.addEventListener('click', (event) => {
+  event.preventDefault();
+  if (event.currentTarget.children[2].style.display === 'block') {
+    event.currentTarget.children[2].style.display = 'none';
+  } else {
+    event.currentTarget.children[2].style.display = 'block';
+  }
 });

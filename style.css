@@ -17,6 +17,8 @@ html {
 section.Header-Container {
   background: var(--dark-primary);
   font-family: 'Poppins', sans-serif;
+  z-index: 11;
+  position: relative;
 }
 
 header {
@@ -198,10 +200,10 @@ nav {
   position: sticky;
   z-index: 10;
   width: 100%;
-  padding: 1.5rem 0;
-  background: linear-gradient(to bottom left, #2b5a5c, transparent);
+  padding: 0.5rem 0;
+  background: linear-gradient(to bottom left, rgb(17 26 26), transparent);
+  transition: all 200ms;
 }
-
 .head-nav-content {
   width: 100%;
   display: flex;
@@ -235,4 +237,18 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+/* SubMenu NavBar */
+/* .subNavLinks {
+  position: relative;
+  top: 60px;
+  z-index: 1;
+}  */
+ul#Services_dropdown_content {
+  display: none;
+}
+.service {
+  position: absolute;
+  display: block;
+  top: 100%;
 }
