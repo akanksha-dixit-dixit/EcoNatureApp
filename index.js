@@ -57,7 +57,7 @@ night.addEventListener('click', () => {
   //   day.style.display ='block';
 });
 
-//scroll nav bar
+// //scroll nav bar
 
 const nav = document.getElementsByTagName('nav')[0];
 let curPos = window.scrollY;
@@ -69,11 +69,11 @@ window.addEventListener('scroll', () => {
     nav.style.top = '0';
   } else {
     nav.style.top = '-30%';
-    nav.style.paddingBlock = '0.9px';
     nav.style.background = '#209c3bf7';
+    nav.children[0].style.height = '5rem'
   }
   if (position === 0) {
-    nav.style.paddingBlock = '21px';
+    nav.children[0].style.height = '3.6rem'
     nav.style.background =
       'linear-gradient(to bottom left, rgb(17 26 26), transparent)';
   }
@@ -84,12 +84,12 @@ window.addEventListener('scroll', () => {
 
 //services Submenu
 
-const services = document.querySelector('.services');
-services.addEventListener('click', (event) => {
-  event.preventDefault();
-  if (event.currentTarget.children[2].style.display === 'block') {
-    event.currentTarget.children[2].style.display = 'none';
-  } else {
-    event.currentTarget.children[2].style.display = 'block';
-  }
-});
+// const services = document.querySelector('.services');
+// services.addEventListener('click', (event) => {
+//   event.preventDefault();
+//   if (event.currentTarget.children[2].style.display === 'block') {
+//     event.currentTarget.children[2].style.display = 'none';
+//   } else {
+//     event.currentTarget.children[2].style.display = 'block';
+//   }
+// });

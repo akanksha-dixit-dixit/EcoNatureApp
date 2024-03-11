@@ -35,7 +35,7 @@
 
       <div class="ToolBar flex flex-row">
         <div class="weatherDetails cursor-pointer">
-          <i class="fa-solid header-icons fa-arrows-rotate" id="rotateArrow"></i>
+          <i class="fa-solid header-icons  fa-arrows-rotate" id="rotateArrow"></i>
           <span class="detailsOfweather"></span>
           <span class="detailsOfLocation"></span>
 
@@ -49,51 +49,56 @@
 
   </section>
   <nav>
-    <div class="head-nav-content">
-      <div class="left logo">Nature's Cradle</div>
-      <div class="navbar">
-        <ul>
-          <li class="navBar-list">
-            <a href="#">Home</a>
-
+    <div class="navbar">
+      <div class="navbar-left">
+        <div class="left logo">Nature's Cradle</div>
+      </div>
+      <div class="navbar-right">
+        <ul class="main-menu">
+          <li class="main-item">
+            <a href="">Home</a>
           </li>
-
-          <li class="navBar-list services">
-            <a href="#">Services</a>
-            <a><i class="fa-solid fa-caret-down right-arrow ms-1"></i></a>
-            <ul class="subNavLinks service" id="Services_dropdown_content">
-              <li><a href="#">Feature1</a></li>
-              <li><a href="#">Feature2</a></li>
-              <li><a href="#">Feature3</a></li>
-              <li><a href="#">Feature4</a></li>
+          <li class="main-item">
+            <a href="">Service</a>
+            <i class="fa fa-caret-down" aria-hidden="true"></i>
+            <ul class="drop-downMenu">
+              <li>
+                <a href="">DropDown1</a>
+              </li>
+              <li>
+                <a href="">DropDown1</a>
+              </li>
+              <li>
+                <a href="">DropDown1</a>
+              </li>
+              <li>
+                <a href="">DropDown1</a>
+              </li>
 
             </ul>
-          <li class="navBar-list">
+          </li>
+          <li class="main-item">
             <a href="#">About</a>
+            <i class="fa fa-caret-down" aria-hidden="true"></i>
+            <ul class="drop-downMenu">
+              <li>
+                <a href="">DropDown1</a>
+              </li>
+              <li>
+                <a href="">DropDown1</a>
+              </li>
+            </ul>
+
           </li>
-          <li class="navBar-list">
-            <a href="#">Feature</a>
-            <!-- <a><i class="fa-solid fa-caret-down right-arrow"></i></a>
-            <ul class="subNavLinks" id="Feature_dropdown_content menuList">
-              
-                <li><a href="#">Feature1</a></li>
-                <li><a href="#">Feature2</a></li>
-                <li><a href="#">Feature3</a></li>
-            </ul> -->
+          <li class="main-item">
+            <a href="">Features</a>
           </li>
-          <li class="navBar-list">
-            <a href="#">Contact</a>
-            <!-- <a><i class="fa-solid fa-caret-down right-arrow"></i></a>
-            <ul class="subNavLinks" id="Contact_dropdown_content menuList">
-              
-                <li><a href="#">Feature1</a></li>
-                <li><a href="#">Feature2</a></li>
-            </ul> -->
+          <li class="main-item">
+            <a href="">Contact Us</a>
           </li>
         </ul>
       </div>
     </div>
-
   </nav>
   <section class="Content-Container">
     <div class="banner">
@@ -108,6 +113,52 @@
           lead,
           you remain irrevocably linked with the rest of creation"</blockquote>
         </p>
+      </div>
+    </div>
+    <div class="cardsOfNature">
+      <div class="main-card">
+        <div class="Eco-cards Rec">
+          <div class="card-header">
+            <span>
+              <i class="fa-solid fa-arrows-rotate fa-flip-horizontal card-icon" style="color: #fbf2f2; rotate: 90deg">
+              </i>
+            </span>
+            <h1>Recycling</h1>
+          </div>
+          <div class="card-image">
+            <img src="Assets/images/recycling-img1.jpg" alt="">
+          </div>
+        </div>
+        <div class="Eco-cards Eco">
+          <div class="card-header">
+            <span><i class="fa-solid fa-droplet card-icon" style="color: #fbf2f2;">
+              </i></span>
+            <h1>Ecosystem</h1>
+          </div>
+          <div class="card-image">
+            <img src="Assets/images/ecosystem-img.jpg" alt="">
+          </div>
+        </div>
+        <div class="Eco-cards Org">
+          <div class="card-header">
+            <span><i class="fa-solid fa-leaf card-icon" style="color: #fbf2f2; rotate: 90deg">
+              </i></span>
+            <h1>Organic</h1>
+          </div>
+          <div class="card-image">
+            <img src="Assets/images/organic-img.jpg" alt="">
+          </div>
+        </div>
+        <div class="Eco-cards Bio">
+          <div class="card-header">
+            <span><i class="fa-solid fa-earth-americas card-icon" style="color: #fbf2f2; rotate: 90deg">
+              </i></span>
+            <h1>Biology</h1>
+          </div>
+          <div class="card-image">
+            <img src="Assets/images/biology-img.jpg" alt="">
+          </div>
+        </div>
       </div>
     </div>
   </Section>

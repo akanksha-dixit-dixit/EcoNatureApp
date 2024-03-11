@@ -59,11 +59,11 @@ a.email {
   gap: 0.8rem;
 }
 
-.fa-arrows-rotate {
+.weatherDetails .fa-arrows-rotate {
   transform: rotate(0deg);
   transition: all 600ms ease;
 }
-.fa-arrows-rotate:hover {
+.weatherDetails .fa-arrows-rotate:hover {
   background: #3f9b2f;
   border-radius: 2rem;
   color: #40563a;
@@ -200,22 +200,20 @@ nav {
   position: sticky;
   z-index: 10;
   width: 100%;
-  padding: 0.5rem 0;
   background: linear-gradient(to bottom left, rgb(17 26 26), transparent);
   transition: all 200ms;
 }
-.head-nav-content {
+.navbar-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navbar {
   width: 100%;
   display: flex;
   justify-content: space-between;
   padding-inline: 6rem;
-}
-
-.navbar ul {
-  display: flex;
-  gap: 3rem;
-  color: #fffffb;
-  font-size: 0.9rem;
+  height: 3.6rem;
 }
 .logo {
   -webkit-text-stroke: 0.5px #fff;
@@ -233,22 +231,112 @@ nav {
 .logo:hover {
   color: #fff;
 }
-.navbar {
+ul.main-menu {
   display: flex;
+  gap: 4rem;
   align-items: center;
   justify-content: center;
+  height: 100%;
 }
-/* SubMenu NavBar */
-/* .subNavLinks {
+.navbar-right {
   position: relative;
-  top: 60px;
-  z-index: 1;
-}  */
-ul#Services_dropdown_content {
-  display: none;
+  height: 100%;
 }
+.main-item {
+  height: 100%;
+  color: #ffffff94;
+  display: flex;
+  align-items: center;
+}
+.menu-item:hover {
+  color: #fff;
+}
+.drop-downMenu {
+  position: absolute;
+  top: 100%;
+  z-index: 1;
+  background: #3d3e3b8a;
+  padding: 0.4rem 0.7rem;
+  width: 10rem;
+  text-align: left;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  transform: scaleY(0);
+  transform-origin: top;
+  border-top: green 5px solid;
+}
+
+ul.drop-downMenu li {
+  border-bottom: #000 1px solid;
+  padding: 0.4rem 0;
+}
+
 .service {
   position: absolute;
   display: block;
   top: 100%;
+}
+.main-item:hover > .drop-downMenu {
+  visibility: visible;
+  opacity: 1;
+  transform: scaleY(1);
+}
+/* Card css goes here */
+.cardsOfNature {
+  width: 100%;
+  padding-block-start: 2rem;
+  margin: 0 auto;
+  max-width: 87%;
+}
+.main-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 2rem;
+}
+.Eco-cards {
+  width: 100%;
+  border-radius: 0.5rem;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.25);
+  transition: all 450ms ease;
+  transform: translateY(0px);
+}
+.Eco-cards:hover {
+  box-shadow: 0 1.5rem 4rem rgba(0 0 0 /0.85);
+  cursor: pointer;
+  transform: translateY(-12px);
+}
+.card-icon {
+  font-size: 2.5rem;
+  padding-inline: 2rem;
+}
+.card-header {
+  text-align: center;
+  padding-block: 2.9rem;
+}
+.card-header h1 {
+  font-size: 1.3rem;
+  color: #fff;
+  letter-spacing: 3px;
+  margin-block: 1rem;
+}
+.card-image {
+  height: 20rem;
+}
+.card-image img {
+  object-fit: cover;
+  height: 100%;
+}
+.Eco-cards.Rec {
+  background: linear-gradient(to right bottom, #7ed56f, #28b485);
+}
+.Eco-cards.Eco {
+  background: linear-gradient(to right bottom, #2998ff, #5643fa);
+}
+.Eco-cards.Org {
+  background: linear-gradient(to right bottom, #ffb900, #ff7730);
+}
+.Eco-cards.Bio {
+  background: linear-gradient(to right bottom, #00f1ff, #6496ffd9);
 }
