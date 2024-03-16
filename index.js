@@ -61,24 +61,22 @@ night.addEventListener('click', () => {
 
 const nav = document.getElementsByTagName('nav')[0];
 let curPos = window.scrollY;
-
+let countdownShowbg = document.querySelector('.countdownShow')
 window.addEventListener('scroll', () => {
   let position = window.scrollY;
-
+  countdownShowbg.style.backgroundPosition = `50% ${curPos}px`
   if (curPos > position) {
     nav.style.top = '0';
   } else {
     nav.style.top = '-30%';
     nav.style.background = '#209c3bf7';
-    nav.children[0].style.height = '5rem'
+    nav.children[0].style.height = '5rem';
   }
   if (position === 0) {
-    nav.children[0].style.height = '3.6rem'
+    nav.children[0].style.height = '3.6rem';
     nav.style.background =
       'linear-gradient(to bottom left, rgb(17 26 26), transparent)';
   }
-  console.log(position);
-
   curPos = position;
 });
 
@@ -93,3 +91,61 @@ window.addEventListener('scroll', () => {
 //     event.currentTarget.children[2].style.display = 'block';
 //   }
 // });
+
+// Counter getter
+
+let countdownShow = document.querySelector('.countdownShow');
+let counter = document.querySelectorAll('counter');
+let countdowNumber = document.querySelectorAll('.countdown-number');
+console.log(countdowNumber);
+let countervalue1 = 0;
+let countervalue2 = 0;
+let countervalue3 = 0;
+let countervalue4 = 0;
+window.addEventListener('load', (e) => {
+  setInterval(() => {
+    if (countervalue1 < 3600) {
+      countervalue1++;
+      countdowNumber[0].innerHTML = countervalue1;
+    }
+  }, 5);
+
+  setInterval(() => {
+    if (countervalue2 < 12000) {
+      countervalue2++;
+      countdowNumber[1].innerHTML = countervalue2;
+    }
+  }, 5);
+
+  setInterval(() => {
+    if (countervalue3 < 680) {
+      countervalue3++;
+      countdowNumber[2].innerHTML = countervalue3;
+    }
+  }, 50);
+
+  setInterval(() => {
+    if (countervalue4 < 460) {
+      countervalue4++;
+      countdowNumber[3].innerHTML = countervalue4;
+    }
+  }, 100);
+});
+
+//Advantages section getter
+
+let tabLinkContainer = document.querySelectorAll('.tab_link_container');
+let mode = document.querySelectorAll('.mode');
+tabLinkContainer.forEach((tablink) => {
+  tablink.addEventListener('click', (e) => {
+    e.preventDefault();
+    let target = e.target.getAttribute('data-target');
+    mode.forEach((el) => {
+      let clickTabId = el.getAttribute('id');
+      el.classList.add('hide-tab');
+      if (clickTabId === target) {
+        el.classList.remove('hide-tab')      
+      }
+    });
+  });
+});

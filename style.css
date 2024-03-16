@@ -8,7 +8,11 @@
   --dark-primary: #6bb05d;
   --light-primary: #4d7f43c9;
 }
-
+.container {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+}
 body,
 html {
   font-family: 'Poppins', sans-serif;
@@ -339,4 +343,148 @@ ul.drop-downMenu li {
 }
 .Eco-cards.Bio {
   background: linear-gradient(to right bottom, #00f1ff, #6496ffd9);
+}
+.countdownShow {
+  padding-block: 3rem;
+  width: 100%;
+  /* background: #00a97e; */
+  background: #00a97e24;
+  margin-block: 2.7rem;
+  background: url(Assets/images/countdown-img.jpg);
+  background-position: 50% 90%;
+}
+.innerContainercountdown {
+  margin-inline: auto;
+  text-align: center;
+  max-width: 80rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-block-start: 3rem;
+}
+h1.countdown-title {
+  font-size: 2rem;
+  color: #4c5562;
+  font-weight: 200;
+  text-align: center;
+}
+span.img-count {
+  font-size: 3.2rem;
+  color: #4c556257;
+  font-weight: 300;
+}
+.counterdiv {
+  display: flex;
+}
+.counter-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding-left: 1.5rem;
+  justify-content: center;
+}
+span.countdown-number.countnumber1 {
+  font-size: 1.9rem;
+  color: #57cbe1;
+}
+span.countdown-number.countnumber2 {
+  font-size: 1.9rem;
+  color: #62e0c1;
+}
+span.countdown-number.countnumber3 {
+  font-size: 1.9rem;
+  color: #62e0c1;
+}
+span.countdown-number.countnumber4 {
+  font-size: 1.9rem;
+  color: #b7f275;
+}
+span.countdown-text {
+  color: #4c556252;
+}
+span.dollar {
+  color: #4c556280;
+  font-size: 2rem;
+}
+.infoOfnaturecounter {
+  margin-inline: auto;
+  width: 100%;
+  margin-top: 2.9rem;
+  text-align: center;
+  max-width: 60%;
+  color: #4c5562b8;
+  font-size: 1.25rem;
+  line-height: 2.3rem;
+}
+.advAndStaticsticsSection {
+  width: 100%;
+}
+
+section.AdvanageSection {
+  width: 50%;
+  position: relative;
+}
+section.statistics {
+  width: 50%;
+}
+.innerPageAdvStact.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tab_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tab_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: #000 1px solid;
+}
+.AdvanageSection h1 {
+  font-size: 1.3rem;
+  color: #4c5562b8;
+  font-weight: 300;
+  letter-spacing: 0.3rem;
+  padding-block-end: 1.3rem;
+}
+.tab_link_container:nth-child(1) {
+  background: #57cbe1;
+}
+.tab_link_container:nth-child(2) {
+  background: #62e0c1;
+}
+.tab_link_container:nth-child(3) {
+  background: #7fe092;
+}
+.tab_link {
+  border-inline: #000 1px solid;
+  font-size: 1.1rem;
+  color: #4c5562;
+  font-weight: 300;
+}
+p.content-tabs {
+  color: rgba(151, 156, 164, 1);
+  padding-block: 1.7rem;
+  font-size: 0.8rem;
+  text-align: justify;
+}
+section.AdvanageSection div:nth-of-type(0) {
+  border: #000 1px solid;
+}
+.mode {
+  border: #000 1px solid;
+  margin-block: 1.1rem;
+  padding-inline: 1rem;
+  position: absolute;
+  left: 0;
+}
+.tab_link a.href {
+  display: inline-block;
+  padding: 0.8rem;
+}
+.hide-tab{
+  opacity: 0;
 }
