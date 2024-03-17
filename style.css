@@ -8,7 +8,7 @@
   --dark-primary: #6bb05d;
   --light-primary: #4d7f43c9;
 }
-.container {
+.inn-container {
   width: 100%;
   max-width: 80rem;
   margin-inline: auto;
