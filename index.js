@@ -57,47 +57,53 @@ night.addEventListener('click', () => {
   //   day.style.display ='block';
 });
 
+//getter for top to bottom icons
+
+const TopBottomIcon = document.querySelector('.TopBottomIcon');
+const rootElement = document.querySelector('.rootElement');
+
+// TopBottomIcon.addEventListener('click', () => {
+// window.scrollTo({
+//           top:0,
+
+//           behavior :'smooth'
+
+//   })
+// });
+
 // //scroll nav bar
 
 const nav = document.getElementsByTagName('nav')[0];
 let curPos = window.scrollY;
-let countdownShowbg = document.querySelector('.countdownShow')
+let countdownShowbg = document.querySelector('.countdownShow');
 window.addEventListener('scroll', () => {
   let position = window.scrollY;
-  countdownShowbg.style.backgroundPosition = `50% ${curPos}px`
+
   if (curPos > position) {
     nav.style.top = '0';
   } else {
     nav.style.top = '-30%';
     nav.style.background = '#209c3bf7';
-    nav.children[0].style.height = '5rem';
+    nav.children[0].style.height = '3.6rem';
   }
   if (position === 0) {
-    nav.children[0].style.height = '3.6rem';
+    nav.children[0].style.height = '5rem';
     nav.style.background =
       'linear-gradient(to bottom left, rgb(17 26 26), transparent)';
   }
   curPos = position;
+  if (curPos > 100) {
+    TopBottomIcon.style.opacity = 1;
+  } else {
+    TopBottomIcon.style.opacity = 0;
+  }
 });
-
-//services Submenu
-
-// const services = document.querySelector('.services');
-// services.addEventListener('click', (event) => {
-//   event.preventDefault();
-//   if (event.currentTarget.children[2].style.display === 'block') {
-//     event.currentTarget.children[2].style.display = 'none';
-//   } else {
-//     event.currentTarget.children[2].style.display = 'block';
-//   }
-// });
 
 // Counter getter
 
 let countdownShow = document.querySelector('.countdownShow');
 let counter = document.querySelectorAll('counter');
 let countdowNumber = document.querySelectorAll('.countdown-number');
-console.log(countdowNumber);
 let countervalue1 = 0;
 let countervalue2 = 0;
 let countervalue3 = 0;
@@ -133,19 +139,114 @@ window.addEventListener('load', (e) => {
 });
 
 //Advantages section getter
-
+let currActiveId = 0;
 let tabLinkContainer = document.querySelectorAll('.tab_link_container');
 let mode = document.querySelectorAll('.mode');
 tabLinkContainer.forEach((tablink) => {
   tablink.addEventListener('click', (e) => {
     e.preventDefault();
+
     let target = e.target.getAttribute('data-target');
+
     mode.forEach((el) => {
       let clickTabId = el.getAttribute('id');
       el.classList.add('hide-tab');
       if (clickTabId === target) {
-        el.classList.remove('hide-tab')      
+        el.classList.remove('hide-tab');
       }
+    });
+
+    mode.forEach((item, index) => {
+      if (!item.classList.contains('hide-tab')) currActiveId = index;
     });
   });
 });
+
+tabLinkContainer.forEach((tablink) => {
+  tablink.addEventListener('click', (event) => {
+    tabLinkContainer.forEach((tabs) => tabs.classList.remove('active-tab'));
+    tabLinkContainer[currActiveId].classList.add('active-tab');
+  });
+});
+
+//Stastistics Section getter
+
+let progress = document.querySelectorAll('.progress');
+window.addEventListener('load', (event) => {
+  let width1 = 0;
+
+  progress.forEach((item) => {
+    setInterval(() => {
+      if (width1 < 79) {
+        width1++;
+      }
+    }, 1000);
+  });
+});
+
+window.addEventListener('load', (e) => {
+  fetchStatisticData();
+});
+
+//stastics getter
+//API Hit from
+const APIURl = 'https://api.jsonbin.io/v3/b/65fac355266cfc3fde9b198b';
+const APIKey = '$2a$10$BMX3qG3z8V.XTPlimkxsv.ksnfKhiro5oXrETqpCcfIqeFKm9pgWC';
+
+const fetchStatisticData = async (lat, lon) => {
+  const response = await fetch(`${APIURl}`, {
+    method: 'GET',
+    headers: {
+      'X-Master-Key':
+        '$2a$10$BMX3qG3z8V.XTPlimkxsv.ksnfKhiro5oXrETqpCcfIqeFKm9pgWC',
+    },
+  });
+  const data = await response.json();
+  const statstics = data.record.statistics;
+  const StasticsObj = [];
+  const StastisticsName = [];
+  for (let item of statstics) {
+    StasticsObj.push(item.value);
+    StastisticsName.push(
+      item.name.charAt(0).toUpperCase() + item.name.slice(1)
+    );
+  }
+
+  for (let i = 0; i < progress.length; i++) {
+    progress[
+      i
+    ].innerHTML = `<span>${StastisticsName[i]}</span><span>${StasticsObj[i]}%</span>`;
+    progress[i].style.width = `${data.record.statistics[i].value}%`;
+  }
+
+  // progress[0].innerHTML = `<span>Ecology</span><span>${StasticsObj.ecology}%</span>`
+  // progress[0].style.width = `${data.record.statistics[0].value}%`;
+  // progress[1].innerHTML = `<span>Recycling</span><span>${StasticsObj.recycling}%</span>`
+  // progress[1].style.width = `${data.record.statistics[0].value}%`;
+  // progress[1].innerHTML = `<span>Recycling</span><span>${StasticsObj.recycling}%</span>`
+  // progress[1].style.width = `${data.record.statistics[0].value}%`;
+};
+
+fetchStatisticData();
+
+const APIURL =
+  'https://newsapi.org/v2/everything?q=pollution&apiKey=220fd804e6b847eb816942cb53cda1b8';
+const APIKEY = '220fd804e6b847eb816942cb53cda1b8';
+let footerNews = document.querySelector('.footerNews');
+let newsList = document.querySelector('.newsList');
+
+const fetchNewsData = async () => {
+  const articleTitle = [];
+  const response = await fetch(`${APIURL}`);
+  const newsData = await response.json();
+  for (let i = 0; i < 5; i++) {
+    articleTitle.push(newsData.articles[i].title);
+    newsList.innerHTML += `
+              
+             <li class='article'>
+                 ${articleTitle[i].slice(0, 35)}...
+              
+                </li>`;
+  }
+};
+fetchNewsData();

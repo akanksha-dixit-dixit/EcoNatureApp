@@ -6,7 +6,7 @@
 / Root vars */
 :root {
   --dark-primary: #6bb05d;
-  --light-primary: #4d7f43c9;
+  --light-primary: #4d7f43;
 }
 .inn-container {
   width: 100%;
@@ -16,6 +16,7 @@
 body,
 html {
   font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
 }
 
 section.Header-Container {
@@ -218,6 +219,7 @@ nav {
   justify-content: space-between;
   padding-inline: 6rem;
   height: 3.6rem;
+  transition: all 450ms ease;
 }
 .logo {
   -webkit-text-stroke: 0.5px #fff;
@@ -352,6 +354,7 @@ ul.drop-downMenu li {
   margin-block: 2.7rem;
   background: url(Assets/images/countdown-img.jpg);
   background-position: 50% 90%;
+  background-attachment: fixed;
 }
 .innerContainercountdown {
   margin-inline: auto;
@@ -364,7 +367,7 @@ ul.drop-downMenu li {
 }
 h1.countdown-title {
   font-size: 2rem;
-  color: #4c5562;
+  color: #2b333f;
   font-weight: 200;
   text-align: center;
 }
@@ -385,22 +388,22 @@ span.img-count {
 }
 span.countdown-number.countnumber1 {
   font-size: 1.9rem;
-  color: #57cbe1;
+  color: #11a3be;
 }
 span.countdown-number.countnumber2 {
   font-size: 1.9rem;
-  color: #62e0c1;
+  color: #bfd9d3;
 }
 span.countdown-number.countnumber3 {
   font-size: 1.9rem;
-  color: #62e0c1;
+  color: #0baf87;
 }
 span.countdown-number.countnumber4 {
   font-size: 1.9rem;
   color: #b7f275;
 }
 span.countdown-text {
-  color: #4c556252;
+  color: #4c5562b8;
 }
 span.dollar {
   color: #4c556280;
@@ -426,6 +429,7 @@ section.AdvanageSection {
 }
 section.statistics {
   width: 50%;
+  position: relative;
 }
 .innerPageAdvStact.container {
   display: flex;
@@ -439,52 +443,226 @@ section.statistics {
 }
 .tab_container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  border: #000 1px solid;
 }
-.AdvanageSection h1 {
+.AdvanageSection h1,
+section.statistics h1 {
   font-size: 1.3rem;
   color: #4c5562b8;
   font-weight: 300;
   letter-spacing: 0.3rem;
   padding-block-end: 1.3rem;
 }
-.tab_link_container:nth-child(1) {
+.tab_link {
+  transition: background 350ms ease;
+}
+
+.tab_link_container:nth-child(1):hover,
+.tab_link:nth-child(1).active-tab {
   background: #57cbe1;
+  color: #fff;
+  font-weight: 300;
 }
-.tab_link_container:nth-child(2) {
+
+.tab_link_container:nth-child(2):hover,
+.tab_link:nth-child(2).active-tab {
   background: #62e0c1;
+  color: #fff;
+  font-weight: 300;
 }
-.tab_link_container:nth-child(3) {
+
+.tab_link_container:nth-child(3):hover,
+.tab_link:nth-child(3).active-tab {
   background: #7fe092;
+  color: #fff;
+  font-weight: 300;
 }
 .tab_link {
-  border-inline: #000 1px solid;
-  font-size: 1.1rem;
+  border-top: #000 1px solid;
+  font-size: 1.2rem;
   color: #4c5562;
   font-weight: 300;
+  border-right: #000 1px solid;
+  border-left: #000 1px solid;
 }
 p.content-tabs {
   color: rgba(151, 156, 164, 1);
   padding-block: 1.7rem;
-  font-size: 0.8rem;
+  font-size: 0.89rem;
   text-align: justify;
+  line-height: 1.7rem;
 }
 section.AdvanageSection div:nth-of-type(0) {
   border: #000 1px solid;
 }
 .mode {
   border: #000 1px solid;
-  margin-block: 1.1rem;
   padding-inline: 1rem;
   position: absolute;
   left: 0;
+  height: 63%;
+  display: flex;
+  align-items: center;
+
+  transition: transform 500ms ease;
 }
 .tab_link a.href {
   display: inline-block;
-  padding: 0.8rem;
+  padding: 0.8rem 1.8rem;
 }
-.hide-tab{
+.hide-tab {
   opacity: 0;
+  transform: translateY(2rem);
+  transform-origin: bottom;
+}
+.innerPageAdvStact {
+  display: flex;
+  /* align-items: flex-end; */
+  gap: 3rem;
+  justify-content: inherit;
+}
+.innerStatistics {
+  display: flex;
+  align-items: center;
+}
+.progressBarTabs {
+  width: 100%;
+}
+.progress {
+  border: #000 1px solid;
+  margin-block-end: 1.1rem;
+  padding-block: 0.4rem;
+  padding-inline: 1rem;
+  border-radius: 0.3rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.progress:nth-child(1) {
+  background: #57cbe1;
+}
+.progress:nth-child(2) {
+  background: #62e0c1;
+}
+.progress:nth-child(3) {
+  background: #7fe092;
+}
+.progress:nth-child(4) {
+  background: #b7f275;
+}
+.progress:nth-child(5) {
+  background: #c9ef5f;
+}
+i.fa.fa-caret-down {
+  margin-inline-start: 0.3rem;
+}
+.tab_link a.href:hover {
+}
+.mode.active-tab {
+  color: #2b333f;
+}
+section.Footer-Container {
+  width: 100%;
+  background: url('Assets/images/bg_parallax_2.jpg');
+  background-attachment: fixed;
+  position: relative;
+}
+.bottomFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: 5rem;
+}
+.copyright {
+  padding-block: 1.8rem;
+}
+.copyright p {
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+}
+.copyright p:hover {
+  color: #29a514;
+}
+.fontAwesomeImge span {
+  color: #fff;
+  cursor: pointer;
+}
+.fontAwesomeImge span:hover {
+  color: #29a514;
+}
+.foot:nth-child(1) {
+  width: 35%;
+}
+
+.TopBottomIcon {
+  display: inline-block;
+  background-color: #1ea881;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 23px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
+  z-index: 1000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  color: #fff;
+  font-size: 1.4rem;
+}
+.topFooter {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1.9rem 1.7rem;
+  box-shadow: 4px 2px 17px 7px #2f6b4e4d;
+  gap: 1rem;
+}
+section.videosection {
+  width: 100%;
+  max-width: 364px;
+}
+
+section.Footer-Container .navbar-left {
+  align-items: flex-start;
+  display: flex;
+  justify-content: flex-start;
+}
+.Footertext {
+  width: 100%;
+  color: #fff;
+  text-align: justify;
+  padding-right: 1.6rem;
+}
+
+ul.footer-unorderedList {
+  color: #fff;
+  display: grid;
+  gap: 0.5rem;
+}
+li.article {
+  width: 75%;
+  text-align: justify;
+  margin: 0.5rem;
+  font-size: 1rem;
+  color: #fff;
+  cursor: pointer;
+}
+section.FooterNav {
+  width: 25%;
+}
+section.footerNews {
+  width: 45%;
+}
+li.Footer-list a:hover {
+  color: #7cca1eb3;
+  font-style: italic;
 }
