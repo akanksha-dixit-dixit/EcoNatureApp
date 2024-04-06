@@ -365,12 +365,36 @@ ul.drop-downMenu li {
   justify-content: space-between;
   margin-block-start: 3rem;
 }
+.innerPartnerBrand ul {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: slider 10s forwards linear infinite;
+  flex-wrap: nowrap;
+  gap: 1.45rem;
+}
+.innerPartnerBrand {
+  width: 75em;
+  overflow: hidden;
+}
+
+@keyframes slider {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 h1.countdown-title {
   font-size: 2rem;
   color: #2b333f;
   font-weight: 200;
   text-align: center;
 }
+
 span.img-count {
   font-size: 3.2rem;
   color: #4c556257;
@@ -576,6 +600,9 @@ section.Footer-Container {
 }
 .copyright {
   padding-block: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 .copyright p {
   font-size: 1rem;
@@ -594,7 +621,7 @@ section.Footer-Container {
   color: #29a514;
 }
 .foot:nth-child(1) {
-  width: 35%;
+  width: 25%;
 }
 
 .TopBottomIcon {
@@ -657,7 +684,7 @@ li.article {
   cursor: pointer;
 }
 section.FooterNav {
-  width: 25%;
+  width: fit-content;
 }
 section.footerNews {
   width: 45%;
@@ -665,4 +692,33 @@ section.footerNews {
 li.Footer-list a:hover {
   color: #7cca1eb3;
   font-style: italic;
+}
+.partnerBrand {
+  width: 100%;
+  border-bottom: 20px;
+  padding-bottom: 2rem;
+}
+h1.partnerTitle {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #a6b1a8;
+  letter-spacing: 0.5rem;
+  padding-block: 0.9rem;
+}
+img.heartImg {
+  height: 10px;
+}
+.partnerTitleBottom {
+  border-bottom: green 2px solid;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.6rem;
+  width: 6.2rem;
+}
+
+.OurAchievement {
+  width: 100%;
+  border: red 1px solid;
+  margin-block: 1rem;
+  background-image: url('Assets/images/bg.jpg');
 }

@@ -229,24 +229,24 @@ const fetchStatisticData = async (lat, lon) => {
 
 fetchStatisticData();
 
-const APIURL =
-  'https://newsapi.org/v2/everything?q=pollution&apiKey=220fd804e6b847eb816942cb53cda1b8';
-const APIKEY = '220fd804e6b847eb816942cb53cda1b8';
-let footerNews = document.querySelector('.footerNews');
-let newsList = document.querySelector('.newsList');
+// const APIURL =
+//   'https://newsapi.org/v2/everything?q=pollution&apiKey=220fd804e6b847eb816942cb53cda1b8';
+// const APIKEY = '220fd804e6b847eb816942cb53cda1b8';
+// let footerNews = document.querySelector('.footerNews');
+// let newsList = document.querySelector('.newsList');
 
-const fetchNewsData = async () => {
-  const articleTitle = [];
-  const response = await fetch(`${APIURL}`);
-  const newsData = await response.json();
-  for (let i = 0; i < 5; i++) {
-    articleTitle.push(newsData.articles[i].title);
-    newsList.innerHTML += `
+// const fetchNewsData = async () => {
+//   const articleTitle = [];
+//   const response = await fetch(`${APIURL}`);
+//   const newsData = await response.json();
+//   for (let i = 0; i < 5; i++) {
+//     articleTitle.push(newsData.articles[i].title);
+//     newsList.innerHTML += `
               
-             <li class='article'>
-                 ${articleTitle[i].slice(0, 35)}...
+//              <li class='article'>
+//                  ${articleTitle[i].slice(0, 35)}...
               
-                </li>`;
-  }
-};
-fetchNewsData();
+//                 </li>`;
+//   }
+// };
+// fetchNewsData();
