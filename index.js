@@ -229,27 +229,65 @@ const fetchStatisticData = async (lat, lon) => {
 
 fetchStatisticData();
 
-// const APIURL =
-//   'https://newsapi.org/v2/everything?q=pollution&apiKey=220fd804e6b847eb816942cb53cda1b8';
-// const APIKEY = '220fd804e6b847eb816942cb53cda1b8';
-// let footerNews = document.querySelector('.footerNews');
-// let newsList = document.querySelector('.newsList');
+const APIURL =
+  'https://newsapi.org/v2/everything?q=pollution&apiKey=220fd804e6b847eb816942cb53cda1b8';
+const APIKEY = '220fd804e6b847eb816942cb53cda1b8';
+let carInner = document.querySelector('.car__inner')
+let carleft  = document.querySelector('.carleft')
+let carRight = document.querySelector('.car__right')
+let carCounter = 0;
+carleft.addEventListener('click',()=>{
+  if(carCounter===0){
+    return
+  }
+  carCounter++
+  carInner.style.transform = `translate(${carCounter*26}%)`
 
-// const fetchNewsData = async () => {
-//   const articleTitle = [];
-//   const response = await fetch(`${APIURL}`);
-//   const newsData = await response.json();
-//   for (let i = 0; i < 5; i++) {
-//     articleTitle.push(newsData.articles[i].title);
-//     newsList.innerHTML += `
-              
-//              <li class='article'>
-//                  ${articleTitle[i].slice(0, 35)}...
-              
-//                 </li>`;
-//   }
-// };
-// fetchNewsData();
+})
+carRight.addEventListener('click',()=>{
+  if(carCounter===0){
+    return
+  }
+  carCounter--
+  carInner.style.transform = `translate(${carCounter*26}%)`
+})
+
+const fetchNewsData = async () => {
+  const articleTitle = [];
+  const response = await fetch(`${APIURL}`);
+  const newsData = await response.json();
+ for(let i=0; i<10; i++){
+  carInner.innerHTML+=`
+  <div class="car">
+  <article>
+    <figure>
+      <img
+        src="${newsData.articles[i].urlToImage}"
+        alt=""
+        loading="lazy"
+      />
+    </figure>
+    <div class="car-inner__info">
+      <header style="display: block">
+        <div class='meta'>
+          <h1 class="title tooltip">${newsData.articles[i].title.slice(0, 50) + '...'}
+            <p class='tooltiptext'>${newsData.articles[i].title}</p>
+          </h1>
+          <address class="address">
+
+            _<a rel="author" href="#1">${newsData.articles[i].author}</a>
+          </address>
+        </div>
+        <p class="info">${newsData.articles[i].description}<a href="${
+    newsData.articles[i].url
+  }" target='blank'>read more</a></p>
+      </header>
+    </div>
+  </article>
+</div>`; 
+ }
+};
+fetchNewsData();
 
 //getter for car_outer
 
@@ -257,15 +295,13 @@ fetchStatisticData();
 //ToolTip For language change
 
 let TooltipForLanguageChange = document.querySelector('.TooltipForLanguageChange')
+let Theme1 = document.querySelector('.Theme1')
 let tooltiplang  = document.querySelector('.tooltiplang')
-TooltipForLanguageChange.addEventListener('click',()=>{
-  if(tooltiplang.style.opacity ===0){
-    tooltiplang.style.opacity = 1
-  }
-  else if(tooltiplang.style.opacity === 1){
-    tooltiplang.style.opacity = 0
-  }
-  else{
-    tooltiplang.style.opacity = 1
-  }
+Theme1.addEventListener('click',()=>{
+     TooltipForLanguageChange.classList.toggle('showHide')
+
 })
+//  tooltiplang.addEventListener('click',()=>{
+//       console.log('hello')
+//  })
+// i8n js libary

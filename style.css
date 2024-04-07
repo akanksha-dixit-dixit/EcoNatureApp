@@ -762,6 +762,7 @@ img.heartImg {
 
 .car__inner {
   display: flex;
+  transition: all 250ms;
 }
 
 article {
@@ -825,13 +826,13 @@ article {
 }
 
 .rightCornerBar {
-	position: fixed;
-	width: 4.2rem;
-	height: auto;
-	text-align: center;
-	bottom: 6rem;
-	right: 9px;
-	z-index: 10000;
+  position: fixed;
+  width: 4.2rem;
+  height: auto;
+  text-align: center;
+  bottom: 6rem;
+  right: 9px;
+  z-index: 10000;
 }
 .themeBox {
   padding: 0.6rem;
@@ -842,12 +843,96 @@ article {
 }
 
 .TooltipForLanguageChange {
-	position: absolute;
-	right: 3.1rem;
-	width: 14rem;
-	text-align: center;
-	top: 0.9rem;
-	color: #fff;
-	font-size: 1.1rem;
+  position: absolute;
+  right: 3.1rem;
+  width: 14rem;
+  text-align: center;
+  top: 0.9rem;
+  color: #fff;
+  font-size: 1.1rem;
+}
+.showHide {
   opacity: 0;
+}
+
+p.tooltiplang {
+  cursor: pointer;
+}
+.car__controls {
+  position: absolute;
+  font-size: 1rem;
+  display: flex;
+  gap: 0.3rem;
+  top: 8.25px;
+  right: 0;
+}
+
+.car__controls i {
+  background-color: #edededab;
+  color: #6a6a6a;
+  border-radius: 4px;
+  text-align: center;
+  aspect-ratio: 1;
+  width: 2rem;
+
+  border-radius: 100%;
+  place-items: center;
+  cursor: pointer;
+  display: grid;
+  translate: 0;
+  transition: all 250ms ease;
+}
+.car__controls i:hover {
+  background-color: #fff;
+  color: #121212;
+  translate: 0 -1px;
+}
+.car__controls i:active {
+  translate: 0;
+}
+.car__outer {
+  position: relative;
+  max-width: 88rem;
+  overflow: hidden;
+  margin-inline: auto;
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: fit-content;
+  background-color: #4a4a4a;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 0.5rem;
+  position: absolute;
+  z-index: 1;
+  bottom: 109%;
+  left: 50%;
+  margin-left: -140px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: all 450ms ease;
+}
+
+.tooltip .tooltiptext::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
 }

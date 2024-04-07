@@ -3,7 +3,10 @@
 
 <head>
   <link rel='stylesheet' href="style.css">
-  <script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=F1mAtSr9P-UqZJ-U3zvdKBa1wFW6RmFt-2IeyJczaLuLMri9qaaIrjrb8pK-aed9Sdapx0_mehSBYysKfHzd-jxPTC8tPGODJENwsI-ibL0NjK0AsxnBbmHCT3Sus80aJziw8ATUSPaUSLO8saUUpVZvBQaueNcEhE0MlJULZ8X7EFOVhJQjgSwxUtCGuXs0EegsVPrV5ZP9xJLEJa7vTisWabX328Le4AOrHHbdWHwr42w4t2yNgm4b4BZfNE21NHdxUn6CQA0KJdjntHfLLw" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://me.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jZG4uZGlzY29yZGFwcC5jb20vYXR0YWNobWVudHMvMTEyODMxODQxMTk3NDM3NzQ5My8xMjI2MTU4NjA1NDYwNDM5MDkwL2luZGV4Lmh0bWw_ZXg9NjYyM2MwMzAmaXM9NjYxMTRiMzAmaG09ZGY3Zjc2MGYzODgxMGIxZTc5YTc3YjQ1ODU5ZmU5Y2M0N2M4NWI0MGNiM2IzZGFjMTdjNDJkODNhODcwNTg1OCY"/><script src='index.js' type="module" defer></script>
+
+  <link rel="stylesheet" crossorigin="anonymous"
+    href="https://me.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jZG4uZGlzY29yZGFwcC5jb20vYXR0YWNobWVudHMvMTEyODMxODQxMTk3NDM3NzQ5My8xMjI2MTU4NjA1NDYwNDM5MDkwL2luZGV4Lmh0bWw_ZXg9NjYyM2MwMzAmaXM9NjYxMTRiMzAmaG09ZGY3Zjc2MGYzODgxMGIxZTc5YTc3YjQ1ODU5ZmU5Y2M0N2M4NWI0MGNiM2IzZGFjMTdjNDJkODNhODcwNTg1OCY" />
+  <script src='index.js' type="module" defer></script>
   <script src='utility.js' type="module" defer></script>
   <meta charset= />
   <meta http-equiv='X-UA-Compatible' content='IE-edge'>
@@ -12,7 +15,8 @@
   <script src="https://kit.fontawesome.com/e68cae37ae.js" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
+  <script src="https://unpkg.com/i18next/dist/umd/i18next.js"></script>
+  <script src="https://unpkg.com/i18next/dist/umd/i18next.min.js"></script>
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet">
@@ -21,6 +25,7 @@
 
 <body>
   <a id="top"></a>
+  <h1 class="tempTag">{{t('title')}}</h1>
   <section class="Header-Container">
     <header class="mx-auto px-28 py-4 flex flex-row justify-between">
       <div class="contactUs">
@@ -294,9 +299,14 @@
       <div class="car__outer">
         <div class="car__info">
           <h1>Fundraising Campaigns</h1>
+
         </div>
         <div class="car__inner">
-
+             
+        </div>
+        <div class="car__controls ">
+          <i class="fas fa-chevron-left carleft" aria-hidden="true"></i>
+          <i class="fas fa-chevron-right car__right" aria-hidden="true"></i>
         </div>
       </div>
     </div>
@@ -351,14 +361,14 @@
       <section class="FirstFooter foot">
         <div class="Footerlogo">
           <div class="navbar-left">
-            <div class="left logo">Nature's Cradle  <img src="Assets/images/heart.svg" alt="" class="heartImg"></div>
+            <div class="left logo">Nature's Cradle <img src="Assets/images/heart.svg" alt="" class="heartImg"></div>
           </div>
           <div class="Footertext foot">
             <p>Designed and built with all the love in the world with the help of our team members.</p>
           </div>
         </div>
       </section>
-      
+
       <section class="FooterNav foot">
         <h1 class="footer__title">Site Map</h1>
         <ul class="footer-unorderedList">
@@ -388,7 +398,7 @@
     <div class="bottomFooter">
 
       <div class="copyright">
-       
+
         <p>Copyright 2024 Nature's Cradle, All Right Reserved</p>
       </div>
       <div class="fontAwesomeImge">
@@ -408,15 +418,16 @@
     <a class="rootElement" href="#top"><i class="fas fa-chevron-up"></i></a>
   </div>
 
-<section class="rightCornerBar">
-      <div class="TooltipForLanguageChange">
-        <p class="tooltiplang">Change Language</p>
-      </div>
-      <div class="Theme1 themeBox">
-            <span><i class="fas fa-language"></i></span>
-      </div>
-</section>
-   
+
+  <section class="rightCornerBar">
+    <div class="TooltipForLanguageChange">
+      <button type='button' id="LangSwitcher">Change Language</button>
+    </div>
+    <div class="Theme1 themeBox">
+      <span><i class="fas fa-language"></i></span>
+    </div>
+  </section>
+
 
 </body>
 
