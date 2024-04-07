@@ -250,3 +250,22 @@ fetchStatisticData();
 //   }
 // };
 // fetchNewsData();
+
+//getter for car_outer
+
+
+//ToolTip For language change
+
+let TooltipForLanguageChange = document.querySelector('.TooltipForLanguageChange')
+let tooltiplang  = document.querySelector('.tooltiplang')
+TooltipForLanguageChange.addEventListener('click',()=>{
+  if(tooltiplang.style.opacity ===0){
+    tooltiplang.style.opacity = 1
+  }
+  else if(tooltiplang.style.opacity === 1){
+    tooltiplang.style.opacity = 0
+  }
+  else{
+    tooltiplang.style.opacity = 1
+  }
+})
