@@ -232,32 +232,40 @@ fetchStatisticData();
 const APIURL =
   'https://newsapi.org/v2/everything?q=pollution&apiKey=220fd804e6b847eb816942cb53cda1b8';
 const APIKEY = '220fd804e6b847eb816942cb53cda1b8';
-let carInner = document.querySelector('.car__inner')
-let carleft  = document.querySelector('.carleft')
-let carRight = document.querySelector('.car__right')
+let carInner = document.querySelector('.car__inner');
+let carleft = document.querySelector('.carleft');
+let carRight = document.querySelector('.car__right');
 let carCounter = 0;
-carleft.addEventListener('click',()=>{
-  if(carCounter===0){
-    return
+carleft.addEventListener('click', () => {
+  if (carCounter === 0) {
+    return;
   }
-  carCounter++
-  carInner.style.transform = `translate(${carCounter*26}%)`
-
-})
-carRight.addEventListener('click',()=>{
-  if(carCounter===0){
-    return
+  carCounter++;
+  carInner.style.transform = `translate(${carCounter * 26}%)`;
+});
+carRight.addEventListener('click', () => {
+  if (carCounter === 0) {
+    return;
   }
-  carCounter--
-  carInner.style.transform = `translate(${carCounter*26}%)`
-})
+  carCounter--;
+  carInner.style.transform = `translate(${carCounter * 26}%)`;
+});
 
 const fetchNewsData = async () => {
   const articleTitle = [];
   const response = await fetch(`${APIURL}`);
   const newsData = await response.json();
- for(let i=0; i<10; i++){
-  carInner.innerHTML+=`
+  for (let i = 0; i < 10; i++) {
+    //treating date
+    const proxyDate = new Date(newsData.articles[i].publishedAt);
+    const date = proxyDate.toLocaleDateString('en-IN', {
+      hour12: false,
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+    });
+
+    carInner.innerHTML += `
   <div class="car">
   <article>
     <figure>
@@ -270,38 +278,71 @@ const fetchNewsData = async () => {
     <div class="car-inner__info">
       <header style="display: block">
         <div class='meta'>
-          <h1 class="title tooltip">${newsData.articles[i].title.slice(0, 50) + '...'}
+          <h1 class="title tooltip">${
+            newsData.articles[i].title.slice(0, 50) + '...'
+          }
             <p class='tooltiptext'>${newsData.articles[i].title}</p>
           </h1>
           <address class="address">
-
+          <time
+          pubdate
+          datetime="2011-08-28"
+          title="August 28th, 2011"
+          >${date}</time
+        >
             _<a rel="author" href="#1">${newsData.articles[i].author}</a>
           </address>
         </div>
-        <p class="info">${newsData.articles[i].description}<a href="${
-    newsData.articles[i].url
-  }" target='blank'>read more</a></p>
+        <p class="info">${newsData.articles[i].description.slice(
+          0,
+          150
+        )}<a href="${newsData.articles[i].url}" target='blank'>read more</a></p>
       </header>
     </div>
   </article>
-</div>`; 
- }
+</div>`;
+  }
 };
 fetchNewsData();
 
 //getter for car_outer
 
-
 //ToolTip For language change
 
-let TooltipForLanguageChange = document.querySelector('.TooltipForLanguageChange')
-let Theme1 = document.querySelector('.Theme1')
-let tooltiplang  = document.querySelector('.tooltiplang')
-Theme1.addEventListener('click',()=>{
-     TooltipForLanguageChange.classList.toggle('showHide')
-
-})
+let TooltipForLanguageChange = document.querySelector(
+  '.TooltipForLanguageChange'
+);
+let Theme1 = document.querySelector('.Theme1');
+let tooltiplang = document.querySelector('.tooltiplang');
+Theme1.addEventListener('click', () => {
+  TooltipForLanguageChange.classList.toggle('showHide');
+});
 //  tooltiplang.addEventListener('click',()=>{
 //       console.log('hello')
 //  })
 // i8n js libary
+//i18n
+i18next.init({
+  lng: 'en', // if you're using a language detector, do not define the lng option
+  debug: true,
+  resources: {
+    en: {
+      translation: {
+        key: 'Our Partners',
+      },
+    },
+    sp: {
+      translation: {
+        key: 'El francias',
+      },
+    },
+  },
+});
+// initialized and ready to go!
+// i18next is already initialized, because the translation resources where passed via init function
+const temp = document.getElementById('temp');
+document.getElementById('output').innerHTML = i18next.t('key');
+temp.addEventListener('click', (e) => {
+  i18next.changeLanguage('sp');
+  document.getElementById('output').innerHTML = i18next.t('key');
+});
