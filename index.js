@@ -1,4 +1,4 @@
-import * as helper from './utility.js';
+import * as helper from "./utility.js";
 
 //Weather Icon Functionality
 
@@ -8,59 +8,59 @@ import * as helper from './utility.js';
 
 // Api hit  on windowonload
 
-window.addEventListener('load', (event) => {
+window.addEventListener("load", (event) => {
   helper.getWeather();
 });
 
 //getter for weather icon
 
-const detailsOfweather = document.querySelector('.detailsOfweather');
-const detailsOfLocation = document.querySelector('.detailsOfLocation');
-const rotateIcons = document.querySelector('#rotateArrow');
+const detailsOfweather = document.querySelector(".detailsOfweather");
+const detailsOfLocation = document.querySelector(".detailsOfLocation");
+const rotateIcons = document.querySelector("#rotateArrow");
 
-rotateIcons.addEventListener('click', () => {
+rotateIcons.addEventListener("click", () => {
   helper.getWeather();
 });
 
 //getter for refresh icon
 
-let rotateArrow = document.querySelector('#rotateArrow');
-rotateArrow.addEventListener('click', () => {
-  rotateArrow.classList.toggle('refresh');
+let rotateArrow = document.querySelector("#rotateArrow");
+rotateArrow.addEventListener("click", () => {
+  rotateArrow.classList.toggle("refresh");
 });
 
 //getter for theme mode
 let body = document.body;
-let theme = document.querySelector('.theme');
-theme.addEventListener('click', () => {
-  body.classList.toggle('dark-mode');
+let theme = document.querySelector(".theme");
+theme.addEventListener("click", () => {
+  body.classList.toggle("dark-mode");
 });
 
-let day = document.querySelector('#day');
-let night = document.querySelector('#night');
+let day = document.querySelector("#day");
+let night = document.querySelector("#night");
 
-day.addEventListener('click', () => {
-  night.classList.add('show');
-  day.classList.remove('show');
-  day.classList.add('hide');
-  night.classList.remove('hide');
+day.addEventListener("click", () => {
+  night.classList.add("show");
+  day.classList.remove("show");
+  day.classList.add("hide");
+  night.classList.remove("hide");
 
   // day.style.display = 'none'
   // night.style.display = 'block';
 });
-night.addEventListener('click', () => {
-  night.classList.add('hide');
-  day.classList.remove('hide');
-  day.classList.add('show');
-  night.classList.remove('show');
+night.addEventListener("click", () => {
+  night.classList.add("hide");
+  day.classList.remove("hide");
+  day.classList.add("show");
+  night.classList.remove("show");
   //  night.style.display = 'none'
   //   day.style.display ='block';
 });
 
 //getter for top to bottom icons
 
-const TopBottomIcon = document.querySelector('.TopBottomIcon');
-const rootElement = document.querySelector('.rootElement');
+const TopBottomIcon = document.querySelector(".TopBottomIcon");
+const rootElement = document.querySelector(".rootElement");
 
 // TopBottomIcon.addEventListener('click', () => {
 // window.scrollTo({
@@ -73,23 +73,23 @@ const rootElement = document.querySelector('.rootElement');
 
 // //scroll nav bar
 
-const nav = document.getElementsByTagName('nav')[0];
+const nav = document.getElementsByTagName("nav")[0];
 let curPos = window.scrollY;
-let countdownShowbg = document.querySelector('.countdownShow');
-window.addEventListener('scroll', () => {
+let countdownShowbg = document.querySelector(".countdownShow");
+window.addEventListener("scroll", () => {
   let position = window.scrollY;
 
   if (curPos > position) {
-    nav.style.top = '0';
+    nav.style.top = "0";
   } else {
-    nav.style.top = '-30%';
-    nav.style.background = '#209c3bf7';
-    nav.children[0].style.height = '3.6rem';
+    nav.style.top = "-30%";
+    nav.style.background = "#209c3bf7";
+    nav.children[0].style.height = "3.6rem";
   }
   if (position === 0) {
-    nav.children[0].style.height = '5rem';
+    nav.children[0].style.height = "5rem";
     nav.style.background =
-      'linear-gradient(to bottom left, rgb(17 26 26), transparent)';
+      "linear-gradient(to bottom left, rgb(17 26 26), transparent)";
   }
   curPos = position;
   if (curPos > 100) {
@@ -101,14 +101,14 @@ window.addEventListener('scroll', () => {
 
 // Counter getter
 
-let countdownShow = document.querySelector('.countdownShow');
-let counter = document.querySelectorAll('counter');
-let countdowNumber = document.querySelectorAll('.countdown-number');
+let countdownShow = document.querySelector(".countdownShow");
+let counter = document.querySelectorAll("counter");
+let countdowNumber = document.querySelectorAll(".countdown-number");
 let countervalue1 = 0;
 let countervalue2 = 0;
 let countervalue3 = 0;
 let countervalue4 = 0;
-window.addEventListener('load', (e) => {
+window.addEventListener("load", (e) => {
   setInterval(() => {
     if (countervalue1 < 3600) {
       countervalue1++;
@@ -140,39 +140,39 @@ window.addEventListener('load', (e) => {
 
 //Advantages section getter
 let currActiveId = 0;
-let tabLinkContainer = document.querySelectorAll('.tab_link_container');
-let mode = document.querySelectorAll('.mode');
+let tabLinkContainer = document.querySelectorAll(".tab_link_container");
+let mode = document.querySelectorAll(".mode");
 tabLinkContainer.forEach((tablink) => {
-  tablink.addEventListener('click', (e) => {
+  tablink.addEventListener("click", (e) => {
     e.preventDefault();
 
-    let target = e.target.getAttribute('data-target');
+    let target = e.target.getAttribute("data-target");
 
     mode.forEach((el) => {
-      let clickTabId = el.getAttribute('id');
-      el.classList.add('hide-tab');
+      let clickTabId = el.getAttribute("id");
+      el.classList.add("hide-tab");
       if (clickTabId === target) {
-        el.classList.remove('hide-tab');
+        el.classList.remove("hide-tab");
       }
     });
 
     mode.forEach((item, index) => {
-      if (!item.classList.contains('hide-tab')) currActiveId = index;
+      if (!item.classList.contains("hide-tab")) currActiveId = index;
     });
   });
 });
 
 tabLinkContainer.forEach((tablink) => {
-  tablink.addEventListener('click', (event) => {
-    tabLinkContainer.forEach((tabs) => tabs.classList.remove('active-tab'));
-    tabLinkContainer[currActiveId].classList.add('active-tab');
+  tablink.addEventListener("click", (event) => {
+    tabLinkContainer.forEach((tabs) => tabs.classList.remove("active-tab"));
+    tabLinkContainer[currActiveId].classList.add("active-tab");
   });
 });
 
 //Stastistics Section getter
 
-let progress = document.querySelectorAll('.progress');
-window.addEventListener('load', (event) => {
+let progress = document.querySelectorAll(".progress");
+window.addEventListener("load", (event) => {
   let width1 = 0;
 
   progress.forEach((item) => {
@@ -184,21 +184,21 @@ window.addEventListener('load', (event) => {
   });
 });
 
-window.addEventListener('load', (e) => {
+window.addEventListener("load", (e) => {
   fetchStatisticData();
 });
 
 //stastics getter
 //API Hit from
-const APIURl = 'https://api.jsonbin.io/v3/b/65fac355266cfc3fde9b198b';
-const APIKey = '$2a$10$BMX3qG3z8V.XTPlimkxsv.ksnfKhiro5oXrETqpCcfIqeFKm9pgWC';
+const APIURl = "https://api.jsonbin.io/v3/b/65fac355266cfc3fde9b198b";
+const APIKey = "$2a$10$BMX3qG3z8V.XTPlimkxsv.ksnfKhiro5oXrETqpCcfIqeFKm9pgWC";
 
 const fetchStatisticData = async (lat, lon) => {
   const response = await fetch(`${APIURl}`, {
-    method: 'GET',
+    method: "GET",
     headers: {
-      'X-Master-Key':
-        '$2a$10$BMX3qG3z8V.XTPlimkxsv.ksnfKhiro5oXrETqpCcfIqeFKm9pgWC',
+      "X-Master-Key":
+        "$2a$10$BMX3qG3z8V.XTPlimkxsv.ksnfKhiro5oXrETqpCcfIqeFKm9pgWC",
     },
   });
   const data = await response.json();
@@ -230,20 +230,21 @@ const fetchStatisticData = async (lat, lon) => {
 fetchStatisticData();
 
 const APIURL =
-  'https://newsapi.org/v2/everything?q=pollution&apiKey=220fd804e6b847eb816942cb53cda1b8';
-const APIKEY = '220fd804e6b847eb816942cb53cda1b8';
-let carInner = document.querySelector('.car__inner');
-let carleft = document.querySelector('.carleft');
-let carRight = document.querySelector('.car__right');
+  "https://newsapi.org/v2/everything?q=pollution&apiKey=220fd804e6b847eb816942cb53cda1b8";
+const APIKEY = "220fd804e6b847eb816942cb53cda1b8";
+let carInner = document.querySelector(".car__inner");
+let carleft = document.querySelector(".carleft");
+let carRight = document.querySelector(".car__right");
 let carCounter = 0;
-carleft.addEventListener('click', () => {
+carleft.addEventListener("click", () => {
   if (carCounter === 0) {
     return;
   }
   carCounter++;
   carInner.style.transform = `translate(${carCounter * 26}%)`;
 });
-carRight.addEventListener('click', () => {
+carRight.addEventListener("click", () => {
+  console.log(carCounter);
   if (carCounter === 0) {
     return;
   }
@@ -258,11 +259,11 @@ const fetchNewsData = async () => {
   for (let i = 0; i < 10; i++) {
     //treating date
     const proxyDate = new Date(newsData.articles[i].publishedAt);
-    const date = proxyDate.toLocaleDateString('en-IN', {
+    const date = proxyDate.toLocaleDateString("en-IN", {
       hour12: false,
-      day: 'numeric',
-      month: 'short',
-      year: 'numeric',
+      day: "numeric",
+      month: "short",
+      year: "numeric",
     });
 
     carInner.innerHTML += `
@@ -279,7 +280,7 @@ const fetchNewsData = async () => {
       <header style="display: block">
         <div class='meta'>
           <h1 class="title tooltip">${
-            newsData.articles[i].title.slice(0, 50) + '...'
+            newsData.articles[i].title.slice(0, 50) + "..."
           }
             <p class='tooltiptext'>${newsData.articles[i].title}</p>
           </h1>
@@ -309,14 +310,14 @@ fetchNewsData();
 
 //ToolTip For language change
 
-let TooltipForLanguageChange = document.querySelector(
-  '.TooltipForLanguageChange'
-);
-let Theme1 = document.querySelector('.Theme1');
-let tooltiplang = document.querySelector('.tooltiplang');
-Theme1.addEventListener('click', () => {
-  TooltipForLanguageChange.classList.toggle('showHide');
-});
+// let TooltipForLanguageChange = document.querySelector(
+//   '.TooltipForLanguageChange'
+// );
+// let Theme1 = document.querySelector('.Theme1');
+// let tooltiplang = document.querySelector('.tooltiplang');
+// Theme1.addEventListener('click', () => {
+//   TooltipForLanguageChange.classList.toggle('showHide');
+// });
 //  tooltiplang.addEventListener('click',()=>{
 //       console.log('hello')
 //  })
